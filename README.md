@@ -1,1 +1,1 @@
-# QUXZ's Discord Account ToolKit
+Discord Account ToolKit
