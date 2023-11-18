@@ -1,4 +1,5 @@
 Discord Account ToolKit
+Discord Account Token Toolkit
 * mass dm
 * get account friends
 * get open dms
