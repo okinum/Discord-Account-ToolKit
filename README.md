@@ -5,4 +5,4 @@ Discord Account Token Toolkit
 * get open dms
 * get billing info
   
-![image](https://github.com/okinum/Discord-Account-ToolKit/assets/117375890/530298f1-bb1d-458a-9342-8aea7011d277)
+![image](https://github.com/okinum/Discord-Account-ToolKit/assets/117375890/ee1241b6-5e43-4269-970f-d68ec6903548)
