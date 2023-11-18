@@ -12,8 +12,7 @@ using System.Net.Http;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-
-
+using System.Diagnostics;
 
 namespace QUXZ_s_Discord_Account_ToolKit
 {
@@ -133,6 +132,11 @@ namespace QUXZ_s_Discord_Account_ToolKit
                 }
            */
             }
+        }
+
+        private void kryptonPanel1_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer", "https://github.com/okinum/Discord-Account-ToolKit");
         }
     }
 }

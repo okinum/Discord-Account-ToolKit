@@ -35,8 +35,10 @@
             this.kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             this.kryptonButton2 = new Krypton.Toolkit.KryptonButton();
             this.kryptonButton3 = new Krypton.Toolkit.KryptonButton();
-            this.kryptonRichTextBox1 = new Krypton.Toolkit.KryptonRichTextBox();
             this.kryptonButton4 = new Krypton.Toolkit.KryptonButton();
+            this.kryptonRichTextBox1 = new Krypton.Toolkit.KryptonRichTextBox();
+            this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonTextBox1
@@ -117,14 +119,6 @@
             this.kryptonButton3.Values.Text = "Get Open Dm";
             this.kryptonButton3.Click += new System.EventHandler(this.kryptonButton3_Click);
             // 
-            // kryptonRichTextBox1
-            // 
-            this.kryptonRichTextBox1.Location = new System.Drawing.Point(383, 49);
-            this.kryptonRichTextBox1.Name = "kryptonRichTextBox1";
-            this.kryptonRichTextBox1.Size = new System.Drawing.Size(205, 109);
-            this.kryptonRichTextBox1.TabIndex = 5;
-            this.kryptonRichTextBox1.Text = "Info";
-            // 
             // kryptonButton4
             // 
             this.kryptonButton4.Location = new System.Drawing.Point(263, 84);
@@ -141,12 +135,33 @@
             this.kryptonButton4.Values.Text = "Get Billing";
             this.kryptonButton4.Click += new System.EventHandler(this.kryptonButton4_Click);
             // 
+            // kryptonRichTextBox1
+            // 
+            this.kryptonRichTextBox1.Location = new System.Drawing.Point(383, 49);
+            this.kryptonRichTextBox1.Name = "kryptonRichTextBox1";
+            this.kryptonRichTextBox1.Size = new System.Drawing.Size(205, 109);
+            this.kryptonRichTextBox1.TabIndex = 5;
+            this.kryptonRichTextBox1.Text = "Info";
+            // 
+            // kryptonPanel1
+            // 
+            this.kryptonPanel1.Location = new System.Drawing.Point(12, 119);
+            this.kryptonPanel1.Name = "kryptonPanel1";
+            this.kryptonPanel1.Palette = this.kryptonPalette1;
+            this.kryptonPanel1.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
+            this.kryptonPanel1.Size = new System.Drawing.Size(39, 39);
+            this.kryptonPanel1.StateNormal.Image = global::okinum_s_Discord_Account_ToolKit.Properties.Resources.github;
+            this.kryptonPanel1.StateNormal.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Stretch;
+            this.kryptonPanel1.TabIndex = 6;
+            this.kryptonPanel1.Click += new System.EventHandler(this.kryptonPanel1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(600, 170);
+            this.Controls.Add(this.kryptonPanel1);
             this.Controls.Add(this.kryptonRichTextBox1);
             this.Controls.Add(this.kryptonButton4);
             this.Controls.Add(this.kryptonButton3);
@@ -156,6 +171,7 @@
             this.Controls.Add(this.kryptonTextBox1);
             this.Name = "Form1";
             this.Text = "okinum\'s Discord Account ToolKit";
+            ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,8 +184,9 @@
         private Krypton.Toolkit.KryptonButton kryptonButton1;
         private Krypton.Toolkit.KryptonButton kryptonButton2;
         private Krypton.Toolkit.KryptonButton kryptonButton3;
-        private Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
         private Krypton.Toolkit.KryptonButton kryptonButton4;
+        private Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
+        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
     }
 }
 
