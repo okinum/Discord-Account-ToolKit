@@ -36,6 +36,18 @@ namespace QUXZ_s_Discord_Account_ToolKit
             public string id { get; set; }
         }
 
+        class MeInfo
+        {
+            public string id { get; set; }
+            public string username { get; set; }
+            public string verified { get; set; }
+            public string phone { get; set; }
+            public string email { get; set; }
+            public string mfa_enabled { get; set; }
+      //      public Array linked_users { get; set; }
+            public string locale { get; set; }
+            public string premium_type { get; set; }
+        }
 
         class _user
         {
@@ -137,6 +149,24 @@ namespace QUXZ_s_Discord_Account_ToolKit
         private void kryptonPanel1_Click(object sender, EventArgs e)
         {
             Process.Start("explorer", "https://github.com/okinum/Discord-Account-ToolKit");
+        }
+
+        private void kryptonButton5_Click(object sender, EventArgs e)
+        {
+            using (var client = new WebClient())
+            {
+                client.Headers.Add("authorization", kryptonTextBox1.Text);
+                string info = client.DownloadString("https://discord.com/api/v9/users/@me");
+                MeInfo meInfo = JsonConvert.DeserializeObject<MeInfo>(info);
+                kryptonRichTextBox1.Clear();
+                kryptonRichTextBox1.Text += "id: " + meInfo.id + Environment.NewLine;
+                kryptonRichTextBox1.Text += "username: " + meInfo.username + Environment.NewLine;
+                kryptonRichTextBox1.Text += "email: " + meInfo.email + Environment.NewLine;
+                kryptonRichTextBox1.Text += "phone: " + meInfo.phone + Environment.NewLine;
+                kryptonRichTextBox1.Text += "mfa_enabled: " + meInfo.mfa_enabled + Environment.NewLine;
+                kryptonRichTextBox1.Text += "locale: " + meInfo.locale + Environment.NewLine;
+                kryptonRichTextBox1.Text += "premium_type: " + meInfo.premium_type + Environment.NewLine;
+            }
         }
     }
 }

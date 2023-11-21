@@ -38,6 +38,7 @@
             this.kryptonButton4 = new Krypton.Toolkit.KryptonButton();
             this.kryptonRichTextBox1 = new Krypton.Toolkit.KryptonRichTextBox();
             this.kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
+            this.kryptonButton5 = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,13 +140,13 @@
             // 
             this.kryptonRichTextBox1.Location = new System.Drawing.Point(383, 49);
             this.kryptonRichTextBox1.Name = "kryptonRichTextBox1";
-            this.kryptonRichTextBox1.Size = new System.Drawing.Size(205, 109);
+            this.kryptonRichTextBox1.Size = new System.Drawing.Size(205, 138);
             this.kryptonRichTextBox1.TabIndex = 5;
             this.kryptonRichTextBox1.Text = "Info";
             // 
             // kryptonPanel1
             // 
-            this.kryptonPanel1.Location = new System.Drawing.Point(12, 119);
+            this.kryptonPanel1.Location = new System.Drawing.Point(338, 119);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Palette = this.kryptonPalette1;
             this.kryptonPanel1.PaletteMode = Krypton.Toolkit.PaletteMode.Custom;
@@ -155,12 +156,29 @@
             this.kryptonPanel1.TabIndex = 6;
             this.kryptonPanel1.Click += new System.EventHandler(this.kryptonPanel1_Click);
             // 
+            // kryptonButton5
+            // 
+            this.kryptonButton5.Location = new System.Drawing.Point(12, 119);
+            this.kryptonButton5.Name = "kryptonButton5";
+            this.kryptonButton5.Size = new System.Drawing.Size(163, 29);
+            this.kryptonButton5.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.kryptonButton5.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.kryptonButton5.StateCommon.Border.DrawBorders = ((Krypton.Toolkit.PaletteDrawBorders)((((Krypton.Toolkit.PaletteDrawBorders.Top | Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.kryptonButton5.StateCommon.Border.Rounding = 6F;
+            this.kryptonButton5.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kryptonButton5.TabIndex = 7;
+            this.kryptonButton5.Values.Text = "Get Account Info";
+            this.kryptonButton5.Click += new System.EventHandler(this.kryptonButton5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.ClientSize = new System.Drawing.Size(600, 170);
+            this.ClientSize = new System.Drawing.Size(600, 199);
+            this.Controls.Add(this.kryptonButton5);
             this.Controls.Add(this.kryptonPanel1);
             this.Controls.Add(this.kryptonRichTextBox1);
             this.Controls.Add(this.kryptonButton4);
@@ -187,6 +205,7 @@
         private Krypton.Toolkit.KryptonButton kryptonButton4;
         private Krypton.Toolkit.KryptonRichTextBox kryptonRichTextBox1;
         private Krypton.Toolkit.KryptonPanel kryptonPanel1;
+        private Krypton.Toolkit.KryptonButton kryptonButton5;
     }
 }
 
