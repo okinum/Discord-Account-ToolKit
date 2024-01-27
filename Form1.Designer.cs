@@ -157,6 +157,7 @@
             this.kryptonPanel1.StateNormal.ImageStyle = Krypton.Toolkit.PaletteImageStyle.Stretch;
             this.kryptonPanel1.TabIndex = 6;
             this.kryptonPanel1.Click += new System.EventHandler(this.kryptonPanel1_Click);
+            this.kryptonPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.kryptonPanel1_Paint);
             // 
             // kryptonButton5
             // 

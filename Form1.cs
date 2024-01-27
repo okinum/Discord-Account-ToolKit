@@ -69,7 +69,7 @@ namespace QUXZ_s_Discord_Account_ToolKit
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
             kryptonRichTextBox1.Clear();
-            if (Tokens != null)
+            if (Tokens.Count() >= 1)
             {
                 for (int i = 0; i < Tokens.Count; i++)
                 {
@@ -114,7 +114,7 @@ namespace QUXZ_s_Discord_Account_ToolKit
         private void kryptonButton2_Click(object sender, EventArgs e)
         {
             kryptonRichTextBox1.Clear();
-            if (Tokens != null)
+            if (Tokens.Count() >= 1)
             {
                 for (int i = 0; i < Tokens.Count; i++)
                 {
@@ -146,7 +146,8 @@ namespace QUXZ_s_Discord_Account_ToolKit
         private void kryptonButton3_Click(object sender, EventArgs e)
         {
             kryptonRichTextBox1.Clear();
-            if (Tokens != null)
+            Console.WriteLine(Tokens);
+            if (Tokens.Count() >= 1)
             {
                 for (int i = 0; i < Tokens.Count; i++)
                 {
@@ -178,7 +179,7 @@ namespace QUXZ_s_Discord_Account_ToolKit
         private void kryptonButton4_Click(object sender, EventArgs e)
         {
             kryptonRichTextBox1.Clear();
-            if (Tokens != null)
+            if (Tokens.Count() >= 1)
             {
                 for (int i = 0; i < Tokens.Count; i++)
                 {
@@ -219,7 +220,7 @@ namespace QUXZ_s_Discord_Account_ToolKit
         private void kryptonButton5_Click(object sender, EventArgs e)
         {
             kryptonRichTextBox1.Clear();
-            if (Tokens != null)
+            if (Tokens.Count() >= 1)
             {
                 for (int i = 0; i < Tokens.Count; i++)
                 {
@@ -267,6 +268,11 @@ namespace QUXZ_s_Discord_Account_ToolKit
                 MessageBox.Show(Tokens.Count().ToString() + " Token loaded.");
                 reader.Close();
             }
+        }
+
+        private void kryptonPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
