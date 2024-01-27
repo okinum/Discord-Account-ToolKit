@@ -13,6 +13,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.Security.Cryptography.Xml;
 
 namespace QUXZ_s_Discord_Account_ToolKit
 {
@@ -55,6 +56,7 @@ namespace QUXZ_s_Discord_Account_ToolKit
             public string global_name { get; set; }
         }
 
+        public List<string> Tokens = new List<string>();
         /*
         class _recipients
         {
@@ -66,26 +68,41 @@ namespace QUXZ_s_Discord_Account_ToolKit
 
         private void kryptonButton1_Click(object sender, EventArgs e)
         {
+            kryptonRichTextBox1.Clear();
+            if (Tokens != null)
+            {
+                for (int i = 0; i < Tokens.Count; i++)
+                {
+                    mass_dm(Tokens[i]);
+
+                }
+            }
+            else
+            {
+                mass_dm(kryptonTextBox1.Text);
+            }
+        }
+        private void mass_dm(string token)
+        {
             using (var client = new WebClient())
             {
                 //https://discord.com/api/v9/users/@me/relationships //
                 // https://discord.com/api/v9/users/@me/channels
-                client.Headers.Add("authorization", kryptonTextBox1.Text);
+                client.Headers.Add("authorization", token);
                 string eh = client.DownloadString("https://discord.com/api/v9/users/@me/channels");
                 List<OpenChannels> openchannels = JsonConvert.DeserializeObject<List<OpenChannels>>(eh);
-                kryptonRichTextBox1.Clear();
                 foreach (OpenChannels friend in openchannels)
                 {
                     Console.WriteLine(friend.id);
 
-                    
-                          HttpClient httpClient = new HttpClient();
-                          httpClient.DefaultRequestHeaders.Add("authorization", kryptonTextBox1.Text);
-                          MultipartFormDataContent from = new MultipartFormDataContent();
-                          from.Add(new StringContent(kryptonTextBox2.Text), "content");
-                          HttpResponseMessage response = httpClient.PostAsync("https://discord.com/api/v9/channels/" + friend.id + "/messages", from).Result;
-                          response.EnsureSuccessStatusCode();
-                          httpClient.Dispose();
+
+                    HttpClient httpClient = new HttpClient();
+                    httpClient.DefaultRequestHeaders.Add("authorization", token);
+                    MultipartFormDataContent from = new MultipartFormDataContent();
+                    from.Add(new StringContent(kryptonTextBox2.Text), "content");
+                    HttpResponseMessage response = httpClient.PostAsync("https://discord.com/api/v9/channels/" + friend.id + "/messages", from).Result;
+                    response.EnsureSuccessStatusCode();
+                    httpClient.Dispose();
 
                     kryptonRichTextBox1.Text += "Sent Message To " + friend.id + Environment.NewLine;
 
@@ -96,29 +113,60 @@ namespace QUXZ_s_Discord_Account_ToolKit
         }
         private void kryptonButton2_Click(object sender, EventArgs e)
         {
+            kryptonRichTextBox1.Clear();
+            if (Tokens != null)
+            {
+                for (int i = 0; i < Tokens.Count; i++)
+                {
+                    get_friends(Tokens[i]);
+
+                }
+            }
+            else
+            {
+                get_friends(kryptonTextBox1.Text);
+            }
+        }//https://discordapp.com/api/v6/users/@me
+
+        private void get_friends(string token)
+        {
             using (var client = new WebClient())
             {
-                client.Headers.Add("authorization", kryptonTextBox1.Text);
+                client.Headers.Add("authorization", token);
                 string info = client.DownloadString("https://discord.com/api/v9/users/@me/relationships");
                 List<Friends> allfriends = JsonConvert.DeserializeObject<List<Friends>>(info);
                 int counter = 1;
-                kryptonRichTextBox1.Clear();
                 foreach (Friends friend in allfriends)
                 {
                     kryptonRichTextBox1.Text += friend.user.username + Environment.NewLine;
                     counter++;
                 }
             }
-        }//https://discordapp.com/api/v6/users/@me
+        }
         private void kryptonButton3_Click(object sender, EventArgs e)
+        {
+            kryptonRichTextBox1.Clear();
+            if (Tokens != null)
+            {
+                for (int i = 0; i < Tokens.Count; i++)
+                {
+                    get_dms(Tokens[i]);
+
+                }
+            }
+            else
+            {
+                get_dms(kryptonTextBox1.Text);
+            }
+        }
+        private void get_dms(string token)
         {
             using (var client = new WebClient())
             {
-                client.Headers.Add("authorization", kryptonTextBox1.Text);
+                client.Headers.Add("authorization", token);
                 string info = client.DownloadString("https://discord.com/api/v9/users/@me/channels");
                 List<OpenChannels> openchannels = JsonConvert.DeserializeObject<List<OpenChannels>>(info);
                 int counter = 1;
-                kryptonRichTextBox1.Clear();
                 foreach (OpenChannels channels in openchannels)
                 {
                     kryptonRichTextBox1.Text += channels.id + Environment.NewLine;
@@ -129,20 +177,37 @@ namespace QUXZ_s_Discord_Account_ToolKit
 
         private void kryptonButton4_Click(object sender, EventArgs e)
         {
+            kryptonRichTextBox1.Clear();
+            if (Tokens != null)
+            {
+                for (int i = 0; i < Tokens.Count; i++)
+                {
+                    get_billing(Tokens[i]);
+
+                }
+            }
+            else
+            {
+                get_billing(kryptonTextBox1.Text);
+            }
+        }
+
+        private void get_billing(string token)
+        {
             using (var client = new WebClient())
             {
-                client.Headers.Add("authorization", kryptonTextBox1.Text);
+                client.Headers.Add("authorization", token);
                 string info = client.DownloadString("https://discord.com/api/v9/users/@me/billing/subscriptions");
                 List<OpenChannels> openchannels = JsonConvert.DeserializeObject<List<OpenChannels>>(info);
                 kryptonRichTextBox1.Text += info;
                 int counter = 1;
-           /*     kryptonRichTextBox1.Clear();
-                foreach (OpenChannels channels in openchannels)
-                {
-                    kryptonRichTextBox1.Text += channels.id + Environment.NewLine;
-                    counter++;
-                }
-           */
+                /*     kryptonRichTextBox1.Clear();
+                     foreach (OpenChannels channels in openchannels)
+                     {
+                         kryptonRichTextBox1.Text += channels.id + Environment.NewLine;
+                         counter++;
+                     }
+                */
             }
         }
 
@@ -153,19 +218,54 @@ namespace QUXZ_s_Discord_Account_ToolKit
 
         private void kryptonButton5_Click(object sender, EventArgs e)
         {
-            using (var client = new WebClient())
+            kryptonRichTextBox1.Clear();
+            if (Tokens != null)
             {
-                client.Headers.Add("authorization", kryptonTextBox1.Text);
-                string info = client.DownloadString("https://discord.com/api/v9/users/@me");
-                MeInfo meInfo = JsonConvert.DeserializeObject<MeInfo>(info);
-                kryptonRichTextBox1.Clear();
-                kryptonRichTextBox1.Text += "id: " + meInfo.id + Environment.NewLine;
-                kryptonRichTextBox1.Text += "username: " + meInfo.username + Environment.NewLine;
-                kryptonRichTextBox1.Text += "email: " + meInfo.email + Environment.NewLine;
-                kryptonRichTextBox1.Text += "phone: " + meInfo.phone + Environment.NewLine;
-                kryptonRichTextBox1.Text += "mfa_enabled: " + meInfo.mfa_enabled + Environment.NewLine;
-                kryptonRichTextBox1.Text += "locale: " + meInfo.locale + Environment.NewLine;
-                kryptonRichTextBox1.Text += "premium_type: " + meInfo.premium_type + Environment.NewLine;
+                for (int i = 0; i < Tokens.Count; i++)
+                {
+                    get_account_info(Tokens[i]);
+
+                }
+            }
+            else
+            {
+                get_account_info(kryptonTextBox1.Text);
+            }
+
+        }
+
+        private void get_account_info(string token)
+        {
+            var client = new WebClient();
+            client.Headers.Add("authorization", token);
+
+            string info = client.DownloadString("https://discord.com/api/v9/users/@me");
+
+            MeInfo meInfo = JsonConvert.DeserializeObject<MeInfo>(info);
+            kryptonRichTextBox1.Text += "id: " + meInfo.id + Environment.NewLine;
+            kryptonRichTextBox1.Text += "username: " + meInfo.username + Environment.NewLine;
+            kryptonRichTextBox1.Text += "email: " + meInfo.email + Environment.NewLine;
+            kryptonRichTextBox1.Text += "phone: " + meInfo.phone + Environment.NewLine;
+            kryptonRichTextBox1.Text += "mfa_enabled: " + meInfo.mfa_enabled + Environment.NewLine;
+            kryptonRichTextBox1.Text += "locale: " + meInfo.locale + Environment.NewLine;
+            kryptonRichTextBox1.Text += "premium_type: " + meInfo.premium_type + Environment.NewLine;
+        }
+
+        private void kryptonButton6_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //var data = openFileDialog1.OpenFile();
+                StreamReader reader = new StreamReader(openFileDialog1.FileName);
+
+                string line;
+
+                while ((line = reader.ReadLine()) != null)
+                {
+                    Tokens.Add(line);
+                }
+                MessageBox.Show(Tokens.Count().ToString() + " Token loaded.");
+                reader.Close();
             }
         }
     }
